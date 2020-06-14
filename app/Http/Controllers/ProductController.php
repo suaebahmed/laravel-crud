@@ -38,13 +38,14 @@ class ProductController extends Controller
             $ext = $img->getClientOriginalExtension();
             $img_full_name = $img_name.".".$ext;
         }
-        $data['logo'] = '/media/'.$img_full_name;
+        $data['logo'] = 'media/'.$img_full_name;
         $result = DB::table('products')->insert($data);
         if($result){
             // $img->move('public/media',$img_full_name);
             $img->move('media',$img_full_name);
             return \redirect('/products')->with('success',' successfully new product added');
-        }
+        }else
+            return redirect('/products');
     }
 
     function editProduct(Request $req){
@@ -55,7 +56,8 @@ class ProductController extends Controller
 
         $id = $req->id;
         $old_logo = $req->old_logo;
-        
+        $data['logo'] = $old_logo;
+
         $img = $req->file('logo');
         if($img){
             if($old_logo)
@@ -63,15 +65,17 @@ class ProductController extends Controller
             $img_name = date('dmy_h_i_s');
             $ext = $img->getClientOriginalExtension();
             $img_full_name = $img_name.".".$ext;
+            $data['logo'] = 'media/'.$img_full_name;
         }
-        $data['logo'] = '/media/'.$img_full_name;
-
         $result = DB::table('products')->where('id',$id)->update($data); // parameters;
         if($result){
-            $img->move('media',$img_full_name);
+            if($img)
+                $img->move('media',$img_full_name);
             return \redirect('/products')->with('success',' successfully the product updated');
-        }
+        }else
+            return redirect('/products');
     }
+
     function deleteProduct($id){
 
         $product = DB::table('products')->where('id',$id)->first();
@@ -81,6 +85,12 @@ class ProductController extends Controller
         $result = DB::table('products')->where('id',$id)->delete();
         if($result){
             return \redirect('/products')->with('success',' successfully the product is deleted');
-        }
+        }else
+            return redirect('/products');
+    }
+    function  showPost($id){
+        // return array object;
+        $product = DB::table('products')->where('id',$id)->get();
+        return view('product.show',compact('product'));
     }
 }

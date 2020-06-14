@@ -37,9 +37,9 @@
         </div>
 
         <div class="form-group">
-          <label for="logo">old logo</label>
-          <img src="{{ $product->logo }}" width="50px" height="50px" alt="product img">
-          <input type="file" hidden value="{{ $product->logo }}" class="form-control-file" name="old_logo" id="logo">
+          <label for="logo">old logo : </label>
+          <img src="/{{ $product->logo }}" width="50px" height="50px" alt="product img">
+          <input type="text" hidden value="{{ $product->logo }}" class="form-control-file" name="old_logo" id="logo">
 
         </div>
 

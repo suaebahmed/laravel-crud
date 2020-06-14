@@ -33,11 +33,12 @@
                             <td>{{ $item->product_code }}</td>
                             <td>{{ $item->details }}</td>
                             <td>
-                                <img src="{{ $item->logo }}" width="50px" height="50px" alt="product img">
+                                <img src="/{{ $item->logo }}" width="50px" height="50px" alt="product img">
                             </td>
                             <td>
                                 <a class="btn btn-success" href="{{ route('product.edit',['id'=>$item->id]) }}">edit</a>
-                                <a class="btn btn-warning" href="products/{{ $item->id }}">delete</a>
+                                <a class="btn btn-danger" href="delete/{{ $item->id }}">delete</a>
+                                <a class="btn btn-primary" href="{{ route('show',['id'=> $item->id]) }}">show</a>
                             </td>
                         </tr>
                         @endforeach 
