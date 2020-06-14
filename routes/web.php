@@ -3,20 +3,16 @@
 use Illuminate\Support\Facades\Route;
 
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Route::get('/page/{id}', function ($id) {
-//     echo $id;
-//     return view('simple');
-// });
-// Route::get('/y/{id}','users@index');
-// Route::view('/without','fun');
-// Route::get('/user/login','users@login');
-
 Route::get("/",function(){
-
     return view('main');
 });
-Route::get('/products','Products@index')->name('product.index');
+
+Route::get('/products','ProductController@index')->name('product.index');
+
+Route::get('/create_page','ProductController@getCreatePage')->name('product.create');
+Route::any('/edit/{id}','ProductController@getEditPage')->where('id','[0-9]+')->name('product.edit');
+
+// without named route
+Route::match(['get','post'],'/create','ProductController@createProduct');
+Route::post('/edit','ProductController@editProduct');
+Route::get('/products/{id}','ProductController@deleteProduct');
