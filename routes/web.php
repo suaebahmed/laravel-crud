@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
 
 Route::get("/",function(){
@@ -16,3 +17,16 @@ Route::get('products/{id}','ProductController@showPost')->where('id','[0-9]+')->
 Route::match(['get','post'],'/create','ProductController@createProduct');
 Route::post('/edit','ProductController@editProduct');
 Route::get('/delete/{id}','ProductController@deleteProduct');
+
+// ---------------  crud blog app --------
+
+Route::get('/posts','PostController@index');
+
+Route::get('/post/create_page','PostController@getCreatePage');
+
+Route::get('/post/update_page/{id}','PostController@getUpdatePage');
+Route::get('/post/delete/{id}','PostController@deletePost');
+Route::get('/post/{id}','PostController@showPost');
+
+Route::post('/post/create','PostController@createPost');
+Route::post('/post/update','PostController@updatePost');

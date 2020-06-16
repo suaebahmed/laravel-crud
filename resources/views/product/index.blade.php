@@ -7,7 +7,7 @@
                 <h2>Laravel products</h2>
             </div>
             <div class="pull-right">
-                <a href="{{ route('product.create') }}" class="btn btn-primary">create new product</a>
+                <a href="{{ route('product.create') }}" class="btn btn-outline-primary">create new product</a>
             </div>
             
             @if ($msg = Session::get('success'))
@@ -37,7 +37,7 @@
                             </td>
                             <td>
                                 <a class="btn btn-success" href="{{ route('product.edit',['id'=>$item->id]) }}">edit</a>
-                                <a class="btn btn-danger" href="delete/{{ $item->id }}">delete</a>
+                                <a class="btn btn-danger" onclick="return confirm('Are you sure?')" href="delete/{{ $item->id }}">delete</a>
                                 <a class="btn btn-primary" href="{{ route('show',['id'=> $item->id]) }}">show</a>
                             </td>
                         </tr>
@@ -45,6 +45,7 @@
                 </tbody>
             </table>
 
+            {{ $x->links() }}
         </div>
     </div>
 @endsection

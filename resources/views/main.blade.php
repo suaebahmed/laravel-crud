@@ -9,8 +9,15 @@
 </head>
 <body>
     <div class="container">
-        <h2>Add your products</h2>
-        <a class="btn btn-primary" href="{{ route('product.index') }}">Add Your Product</a>
+        <div class="row text-center justify-content-center">
+            <div class="col-xs-6">
+                <div class="my-4">
+                <h2>wellcome laravel crud product</h2>
+                </div>
+                <a class="btn btn-outline-primary btn-block" href="{{ route('product.index') }}">Product crud</a>
+                <a class="btn btn-outline-primary btn-block" href="/posts">blog Post crud</a>
+            </div>
+        </div>
     </div>
 </body>
 </html>

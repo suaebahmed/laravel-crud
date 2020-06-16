@@ -10,3 +10,6 @@ class Product extends Model
         'product_name','product_code','details','logo'
     ];
 }
+
+//model name : product /user
+//table name : products /users 

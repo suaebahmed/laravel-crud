@@ -10,6 +10,9 @@ you can also id make manually <br>
 
 ```sh
 $ php artisan make:controller users
+# create resource full controller
+$ php artisan make:controller users --resource
+
 ```
 
 * **database configure:**
@@ -17,7 +20,9 @@ $ php artisan make:controller users
 # .env file setup database name
 $ php artisan migrate 
 $ php artisan make:migration create_products_table --create=products
-# create resource full controller
-$ php artisan make:controller users --resource
+```
+
+* **Create model**
+```sh
 $ php artisan make:model Product
 ```
