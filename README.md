@@ -26,3 +26,21 @@ $ php artisan make:migration create_products_table --create=products
 ```sh
 $ php artisan make:model Product
 ```
+
+* **Data base seeder**
+```sh
+$ php artisan db:seed
+# to seeder one more class
+$ php artisan make:seeder class_name
+$ php artisan db:seed --class=class_name
+```
+
+* **Data base seeder**
+```sh
+# default seeder class
+$ php artisan db:seed
+# to seeder one more class
+$ php artisan make:seeder class_name
+$ php artisan db:seed --class=class_name
+```
+* **model accessor**

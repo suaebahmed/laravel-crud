@@ -21,12 +21,11 @@ Route::get('/delete/{id}','ProductController@deleteProduct');
 // ---------------  crud blog app --------
 
 Route::get('/posts','PostController@index');
-
 Route::get('/post/create_page','PostController@getCreatePage');
-
 Route::get('/post/update_page/{id}','PostController@getUpdatePage');
 Route::get('/post/delete/{id}','PostController@deletePost');
 Route::get('/post/{id}','PostController@showPost');
 
 Route::post('/post/create','PostController@createPost');
 Route::post('/post/update','PostController@updatePost');
+//  -------        necessary topic of laravel   ---------
