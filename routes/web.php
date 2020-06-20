@@ -29,3 +29,14 @@ Route::get('/post/{id}','PostController@showPost');
 Route::post('/post/create','PostController@createPost');
 Route::post('/post/update','PostController@updatePost');
 //  -------        necessary topic of laravel   ---------
+
+// ------------- chat app ---------------
+Route::get('/chat','chatController@index');
+Route::post('/chat/enter','chatController@enterUser');
+Route::get('/chat/all','chatController@getAllUser');
+Route::get('/chat/selected','chatController@selectUser');
+// -------- api route for chat app -----
+Route::get('/chat/insert','chatController@msgInsert');
+
+//  ---------------  api development  ------------------
+Route::get('/api','ApiController@index');

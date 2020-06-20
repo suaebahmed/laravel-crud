@@ -44,3 +44,11 @@ $ php artisan make:seeder class_name
 $ php artisan db:seed --class=class_name
 ```
 * **model accessor**
+
+
+## laravel error:##
+    **419 page expired for @csrf token**
+    **Call to a member function diffForHumans() on string**
+   ```sh
+    #i don't use eloquent for my query then my date is not automatically cast to Carbon
+   ```
