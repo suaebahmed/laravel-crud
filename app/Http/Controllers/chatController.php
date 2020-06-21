@@ -25,7 +25,8 @@ class chatController extends Controller
         return redirect('chat');
     }
     function getAllUser(){
-        $users = Chat_of_user::all();
+        $id = session()->get('logged_user_id');
+        $users = Chat_of_user::where('user_id','!=',$id)->get();
         return view('chat.newChat',compact('users'));
     }
     function selectUser(Request $req){
@@ -36,9 +37,13 @@ class chatController extends Controller
 
         $sender = DB::select("SELECT * FROM chat_of_user_chats WHERE sender_id = $user1_id AND receiver_id = $user2_id ");
         $receiver = DB::select("SELECT * FROM chat_of_user_chats WHERE sender_id = $user2_id AND receiver_id = $user1_id");
+        // update user_conn database table;
+        
+        
         // 3 compact() doesnot work
         return \view('chat.userChat',compact('sender'),['x'=>$with_user,'receiver'=>$receiver]);
     }
+//  ---------------  api development for ajax ------------------
 
     function msgInsert(Request $req){
         $user1 = session()->get('logged_user_id');

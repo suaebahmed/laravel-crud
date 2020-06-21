@@ -45,10 +45,19 @@ $ php artisan db:seed --class=class_name
 ```
 * **model accessor**
 
+* **three type of middleware**
+1.global middleware<br>
+2.group middleware<br>
+3.Route middleware<br>
 
-## laravel error:##
+```sh
+$ php artisan make:middleware customAuth
+```
+
+## laravel error:
     **419 page expired for @csrf token**
     **Call to a member function diffForHumans() on string**
    ```sh
-    #i don't use eloquent for my query then my date is not automatically cast to Carbon
+    #i don't use eloquent model for my query 
+    #then my date is not automatically cast to Carbon
    ```

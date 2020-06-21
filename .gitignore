@@ -33,3 +33,6 @@ artisan
 composer.lock
 phpunit.xml
 webpack.mix.js
+
+database/factories
+database/seeds

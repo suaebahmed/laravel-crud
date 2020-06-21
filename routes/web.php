@@ -40,3 +40,14 @@ Route::get('/chat/insert','chatController@msgInsert');
 
 //  ---------------  api development  ------------------
 Route::get('/api','ApiController@index');
+
+//  ---------------  users Auth  ------------------
+
+Route::group(["middleware"=>"web"], function(){
+    Route::view('/users/register','auth.register');
+    Route::post('/users/register','users@register');
+    Route::view('/users/login','auth.login');
+    Route::post('/users/login','users@login');
+});
+
+Route::get('/users/logout','users@logout');

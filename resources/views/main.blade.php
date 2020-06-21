@@ -9,16 +9,35 @@
 </head>
 <body>
     <div class="container">
+
+        <ul class="nav justify-content-end">
+            @if(session()->get('user_email'))
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">{{ session()->get('user_email') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/logout">logout</a>
+                </li>
+            @else
+                <li class="nav-item">
+                    <a class="nav-link active" href="/users/register">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/login">Login</a>
+                </li>
+            @endif
+        </ul>
+
         <div class="row text-center justify-content-center">
             <div class="col-xs-6">
                 <div class="my-4">
-                <h2>wellcome laravel crud product</h2>
+                <h2>Wellcome laravel crud product</h2>
                 </div>
                 <a class="btn btn-outline-primary btn-block" href="{{ route('product.index') }}">Product crud</a>
                 <a class="btn btn-outline-primary btn-block" href="/posts">blog Post crud</a>
+                <a class="btn btn-outline-primary btn-block" href="/chat">chat app</a>
             </div>
         </div>
     </div>
 </body>
 </html>
-
